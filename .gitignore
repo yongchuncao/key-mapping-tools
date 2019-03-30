@@ -1,6 +1,6 @@
 /.idea
-/node_modules
 /dist
 /typings
 package-lock.json
 typings.json
+/node_modules
