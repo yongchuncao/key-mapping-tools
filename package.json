@@ -31,9 +31,6 @@
     "files": [
       "dist/target/**/*"
     ],
-    "pkg": {
-      "installLocation": "/Applications"
-    },
     "dmg": {
       "contents": [
         {

@@ -1,3 +1,6 @@
+/**
+ * 主进程提供给，渲染进程的通道。
+ */
 export default class ChannelServer {
   constructor(protocol) {
     this.protocol = protocol;
