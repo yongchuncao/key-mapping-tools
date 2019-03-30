@@ -58,9 +58,6 @@
   "dependencies": {
     "application-config-path": "^0.1.0",
     "assert": "^1.4.1",
-    "electron-clipboard-watcher": "^1.0.1",
-    "electron-packager": "^13.1.1",
-    "electron-updater": "^4.0.6",
     "ffi": "node-ffi/node-ffi",
     "fs-extra": "^7.0.1",
     "log4js": "^4.0.2",
@@ -85,6 +82,8 @@
     "electron": "^3.1.7",
     "electron-builder": "^20.39.0",
     "electron-devtools-installer": "^2.2.4",
+    "electron-packager": "^13.1.1",
+    "electron-updater": "^4.0.6",
     "electron-rebuild": "^1.8.4",
     "esm": "^3.0.84",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
