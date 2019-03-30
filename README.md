@@ -25,7 +25,7 @@ mac OS 能用了，windows快捷键废了。。。而且ctrl系列的所有快�
 4.[`objc`](https://github.com/lukaskollmer/objc) 访问mac OS X API。（这个用起来感觉自己就是在写js,而不是object-c）
   
 ## 编译：
-    git clone https://github.com/yongchuncao/key-maping-tools.git
+    git clone https://github.com/yongchuncao/key-mapping-tools.git
     npm install
     npm run build
     
