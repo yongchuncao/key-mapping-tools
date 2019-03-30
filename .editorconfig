@@ -1,0 +1,24 @@
+# Waltz4 代码风格规则
+
+# 顶层文件
+root = true
+
+# 所有文件生效
+[*]
+# 编码格式
+charset = utf-8
+# 换行符
+end_of_line = lf
+# TRIM
+trim_trailing_whitespace = true
+# 在最后插入一行空白行
+insert_final_newline = true
+# 空格缩进模式
+indent_style = space
+# 缩进大小
+indent_size = 2
+
+
+# MD后缀生效
+[*.md]
+trim_trailing_whitespace = false

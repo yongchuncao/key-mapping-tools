@@ -1,0 +1,31 @@
+{
+  "comments": false,
+  "env": {
+    "main": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "targets": {
+              "electron": 3.0
+            }
+          }
+        ]
+      ]
+    },
+    "renderer": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "modules": false
+          }
+        ]
+      ]
+    }
+  },
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-runtime"
+  ]
+}
