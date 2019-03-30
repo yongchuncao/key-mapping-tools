@@ -1,6 +1,6 @@
 {
   "name": "key-mapping-tools",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "这是一个按键映射工具",
   "main": "dist/target/main/main.js",
   "scripts": {
