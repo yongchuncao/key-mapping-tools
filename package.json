@@ -4,7 +4,7 @@
   "description": "这是一个按键映射工具",
   "main": "dist/target/main/main.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production node build/build.js && electron-builder ",
+    "build": "cross-env NODE_ENV=production node build/build.js && electron-builder --mac",
     "build:pack": "cross-env NODE_ENV=production node build/build.js pack",
     "build:pack-render": "cross-env NODE_ENV=production node build/build.js pack-renderer",
     "build:pack-main": "cross-env NODE_ENV=production node build/build.js pack-main",
@@ -53,14 +53,6 @@
         "dmg",
         "pkg"
       ]
-    },
-    "win": {
-      "icon": "static/icons/icon.ico",
-      "artifactName": "${productName}_setup_${version}.${ext}"
-    },
-    "linux": {
-      "icon": "static/icons",
-      "artifactName": "${productName}_setup_${version}.${ext}"
     }
   },
   "dependencies": {
