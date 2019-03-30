@@ -13,7 +13,7 @@
   "author": "yongchun6688@gmail.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yongchuncao/key-maping-tools.git"
+    "url": "git+https://github.com/yongchuncao/key-mapping-tools.git"
   },
   "license": "ISC",
   "build": {
