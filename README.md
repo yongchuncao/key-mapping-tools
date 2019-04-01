@@ -20,7 +20,7 @@ mac OS 能用了，windows快捷键废了。。。而且ctrl系列的所有快�
    
 2.[`VUE`](https://github.com/vuejs/vue) 实现渲染进程
   
-3.[`robojs`](https://github.com/octalmage/robotjs) 模拟按键
+3.[`robotjs`](https://github.com/octalmage/robotjs) 模拟按键
   
 4.[`objc`](https://github.com/lukaskollmer/objc) 访问mac OS X API。（这个用起来感觉自己就是在写js,而不是object-c）
 
