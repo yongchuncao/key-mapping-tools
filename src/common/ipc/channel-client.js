@@ -50,7 +50,7 @@ export default class ChannelClient {
     let id = this.lastRequestId++;
     const emitter = new Emitter({
       onFirstListenerAdd: () => {
-        const request = {id: id, type: 'EventListen', channelName: channelName, command: event, arg: arg};
+        const request = {id: id, type: 'EventListen', channelName: channelName, command: event, arg: args};
         this.sendMessage(request);
       },
       onLastListenerRemove: () => {
