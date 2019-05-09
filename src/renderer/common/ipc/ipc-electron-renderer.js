@@ -12,7 +12,7 @@ function createProtocol() {
 
 export default class ElectronIPCClient extends IPCClient {
   constructor() {
-    super(createProtocol(), remote.getCurrentWindow().id);
+    super(createProtocol(), remote.getCurrentWindow().webContents.id);
   }
 
   on(channelName, event, listener) {
