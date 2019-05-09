@@ -83,8 +83,12 @@ class KeyMapDao {
 
   async remove(sourceKey) {
     return await new Promise((resolve, reject) => {
-      this.db.remove({sourceKey: sourceKey}, {multi: true}, function () {
-        resolve();
+      this.db.remove({sourceKey: sourceKey}, {multi: true}, function (err, numRemoved) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(numRemoved);
+        }
       })
     });
   }
