@@ -16,6 +16,13 @@ export function fromEmitter(emitter, eventName, map) {
   return result.event;
 }
 
+/**
+ * 将event事件函数重新包装成一个新的函数，这个新函数调用map回调函数，然后使用map的结果作为新函数的回调函数的参数。例如：
+ *
+ * @param event
+ * @param map
+ * @returns {function(*, *=): *}
+ */
 export function mapEvent(event, map) {
   return (listener, thisArgs) => event(i => listener.call(thisArgs, map(i)), null);
 }
@@ -32,6 +39,11 @@ export function filterEvent(event, filter) {
   };
 }
 
+/**
+ * 仅仅执行一次的函数
+ * @param event 一个Emitter类生成的事件函数
+ * @returns {function(*, *=): *}
+ */
 export function once(event) {
   return (listener, thisArgs = null) => {
     const result = event(e => {

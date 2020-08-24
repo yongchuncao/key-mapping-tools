@@ -29,6 +29,7 @@ mac OS 能用了，windows快捷键废了。。。而且ctrl系列的所有快�
 ## 编译：
     git clone https://github.com/yongchuncao/key-mapping-tools.git
     npm install
+    ./nodel_modules/.bin/electron-rebuild
     npm run build
     
  编译之后得到PKG安装包。

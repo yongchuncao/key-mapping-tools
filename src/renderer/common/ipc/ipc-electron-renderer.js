@@ -22,6 +22,7 @@ export default class ElectronIPCClient extends IPCClient {
   }
 
   call(channelName, event, arg) {
+    assert.ok(channelName, "参数channelName禁止为null");
     const channel = this.getChannel(channelName);
     return channel.call(event, arg);
   }
