@@ -1,6 +1,6 @@
 {
   "name": "key-mapping-tools",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "这是一个按键映射工具",
   "main": "dist/target/main/main.js",
   "scripts": {
@@ -50,7 +50,6 @@
       "icon": "static/icons/icon.icns",
       "artifactName": "${productName}_setup_${version}.${ext}",
       "target": [
-        "dmg",
         "pkg"
       ]
     }
