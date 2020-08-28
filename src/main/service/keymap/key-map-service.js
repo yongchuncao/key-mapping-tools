@@ -2,16 +2,19 @@ import {keyTap, keyToggle} from 'robotjs';
 import keyMapDao from '../../dao/key-map-dao';
 import {globalShortcut} from 'electron';
 import LoggerFactory from '../../logger';
-import {getApplicationLocalizedName} from "../../common/util/darwin-util";
+import {getApplicationLocalizedName, getNSPasteboardItems,native2Js} from "../../common/util/darwin-util";
 import appContext from '../../app-context';
 
 const logger = LoggerFactory.logger("key-map-service");
+const allControllerKey = ["alt", "command", "control", "shift"];
+const clipKey = "command+alt+v";
 
 export default class KeyMapService {
   constructor() {
     this.keyMapConfig = [];
     this.currentApp = getApplicationLocalizedName();
     this.monitor = null;
+    this.isClip = false;
   }
 
   start() {
@@ -55,21 +58,46 @@ export default class KeyMapService {
       for (let i = srclastIndex; i >= 0; i--) {
         keyToggle(srckeys[i], 'up');
       }
-
-      let htl = (keyMap) => {
-        let keys = keyMap.targetKey.split('+');
-        let lastIndex = keys.length - 1;
-        logger.info(keyMap.sourceKey + " >> " + keyMap.targetKey);
-        if (lastIndex <= 0) {
-          keyTap(keys[lastIndex]);
-        } else {
-          keyTap(keys[lastIndex], keys.slice(0, lastIndex));
-        }
-      };
-      setTimeout(htl.bind(this, keyMap), 100);
+      this._mapKey(keyMap);
     } catch (e) {
       logger.error(e);
     }
+  }
+
+  _mapKey(keyMap) {
+    let sourceKey = keyMap.sourceKey;
+    let targetKey = keyMap.targetKey;
+    if (sourceKey.toLowerCase() === "control+x") {
+      targetKey = "command+c,command+x"
+    }
+    //如果当前是剪切模式且选中的是文件，那么执行command+alt+v实现剪切
+    if (this.isClip && sourceKey.toLowerCase() === "control+v" && this._isPasteFile()) {
+      targetKey = clipKey;
+    }
+    targetKey.split(',').forEach((targetKey) => this._sendKey(targetKey));
+    this.isClip = keyMap.sourceKey.toLowerCase() === "control+x";
+  }
+
+  _isPasteFile() {
+    return native2Js(getNSPasteboardItems()).some(item => {
+      return native2Js(item.types()).some(type => {
+        return type === 'public.file-url'
+      });
+    });
+  }
+
+  _sendKey(keyStr) {
+    let modifier = [];
+    let masterKey = "";
+    keyStr.split('+').forEach(item => {
+      if (allControllerKey.includes(item)) {
+        modifier.push(item);
+      } else {
+        masterKey = item;
+      }
+    });
+    keyToggle(masterKey, "down", modifier);
+    keyToggle(masterKey, "up", modifier);
   }
 
   /**

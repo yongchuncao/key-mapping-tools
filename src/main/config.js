@@ -32,7 +32,7 @@ export default {
     },
     {
       sourceKey: 'control+x',
-      targetKey: 'command+x'
+      targetKey: 'command+c,command+x'
     },
     {
       sourceKey: 'control+a',

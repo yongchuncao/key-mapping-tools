@@ -14,7 +14,6 @@ export default class UpdateService {
 
   onUpdateEvent(event, args) {
     return fromEmitter(autoUpdater, event, data => data);
-    ;
   }
 
   start() {
